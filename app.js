@@ -7,6 +7,9 @@ const app = express();
 
 const port = process.env.PORT || 3000;
 
+console.log(`Public: ${stripePublishableKey}`);
+console.log(`Secret: ${stripeSecretKey}`);
+
 // Middlewares
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
