@@ -1,6 +1,6 @@
 const express = require('express');
 const keys = require('./config/keys');
-const stripe = require('stripe')(stripeSecretKey);
+const stripe = require('stripe')(keys.stripeSecretKey);
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -20,7 +20,7 @@ app.use('/public', express.static('public'));
 
 // Routes
 app.get('/', (req, res) => {
-  res.render('index', {stripePublishableKey});
+  res.render('index', {stripePublishableKey: keys.stripePublishableKey});
 });
 
 app.post('/charge', (req, res) => {
